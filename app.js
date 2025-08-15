@@ -7,7 +7,11 @@ let largoDelista = 0 ;
 let listaNombres = [] ;
 let nombreLeido = "" ;
 
+let indiceSorteado = 0 ;
 largoDelista = listaNombres.length ;
+
+indiceSorteado=  Math.floor(Math.random()*largoDelista)+1;
+
 
 
 function limpiarTexto() {
@@ -38,10 +42,36 @@ function agregarAmigo() {
 }
 
 function sortearAmigo() {
+ 
+if (largoDelista > 0 ) {
 
-    alert(`oprimió Sortear amigo`);
+
+    indiceSorteado=  Math.floor(Math.random()*largoDelista);
+  
+    alert(`oprimió Sortear amigo ${indiceSorteado} ${listaNombres[indiceSorteado]}`);
+    console.log(`indice sorteado = ${indiceSorteado} ${listaNombres[indiceSorteado]}`) ;
+
+
+//    asignarTextoElemento('ul','Juego del número ul');
+//    asignarTextoElemento('il',`Indica un número il`);
+} else {
+
+    alert(`Atención!   No ha ingresado nombres `);
 
 }
+
+
+}
+
+
+function asignarTextoElemento(elemento, texto) {
+    let elementoHTML = document.querySelector(elemento);
+    elementoHTML.innerHTML = texto;
+    return;
+}
+
+
+
 
 
 
