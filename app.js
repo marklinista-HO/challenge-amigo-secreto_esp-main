@@ -1,8 +1,7 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 
-
 let largoDeLista = 0 ;
-let listaNombres = [] ;
+let amigos = [] ;
 let nombreLeido = "" ;
 
 let indiceSorteado = 0 ;
@@ -11,6 +10,31 @@ let indiceSorteado = 0 ;
 function limpiarTexto() {
     document.querySelector('#amigo').value = '';
 }
+
+
+// función para actualizar la lista de amigos que se despliega
+function actualizaLista(){
+  
+    // Obtener el elemento con id 'listaAmigos' de rol lista
+    let lista = document.getElementById("listaAmigos");
+
+    // Limpiar la lista existente
+    lista.innerHTML = "";
+
+    // Desplegar los nombres ya
+    for (let i=0; i<largoDeLista; i++) {
+
+        let elemento = document.createElement("li");
+        elemento.textContent = amigos[i];
+
+        // Agregar elementos a la lista
+        lista.appendChild(elemento);
+        
+    }
+    
+}
+
+
 
 //  función accionada por el botón "Añadir"
 //  Agregar nombre de amigo a la lista
@@ -27,15 +51,21 @@ function agregarAmigo() {
     } else {
 
         //  Si se ingresó nombre, se agrega a la lista y se limpia la casilla
-        listaNombres.push(nombreLeido);
+        amigos.push(nombreLeido);
         limpiarTexto() ;
+
+        //  Se actualiza el largo de la lista
+        largoDeLista = amigos.length ;
+        
+        //  Se despliega la lista actualizada
+        actualizaLista() ;
+
     }
 
-    //  Se actualiza el largo de la lista
-    largoDeLista = listaNombres.length ;
+    
 
     console.log(`largoDelista ${largoDeLista}`) ;
-    console.log(listaNombres) ;
+    console.log(amigos) ;
 
 }
 
@@ -52,14 +82,14 @@ function sortearAmigo() {
         indiceSorteado=  Math.floor(Math.random()*largoDeLista);
     
 
-        console.log(`indice sorteado = ${indiceSorteado} ${listaNombres[indiceSorteado]}`) ;
+        console.log(`indice sorteado = ${indiceSorteado} ${amigos[indiceSorteado]}`) ;
 
         // Desplegar nombre de amigo sorteado
         let elementoHTML = document.getElementById("resultado");
-        elementoHTML.innerHTML = `Amigo secreto es: ${listaNombres[indiceSorteado]}`;
+        elementoHTML.innerHTML = `Amigo secreto es: ${amigos[indiceSorteado]}`;
 
         // Desplegar nombre de amigo sorteado; prueba 2    
-        //  document.getElementById("resultado").innerHTML = `Amigo secreto es: ${listaNombres[indiceSorteado]}`;
+        //  document.getElementById("resultado").innerHTML = `Amigo secreto es: ${amigos[indiceSorteado]}`;
 
     } else {
 
@@ -81,6 +111,6 @@ function asignarTextoElemento(elemento, texto) {
 
 //  quitar !!!!!
 console.log(`largoDelista ${largoDeLista}`) ;
-console.log(listaNombres) ;
+console.log(amigos) ;
 
 
