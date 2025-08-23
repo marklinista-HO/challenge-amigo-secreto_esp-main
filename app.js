@@ -1,16 +1,18 @@
-// El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
+// El principal objetivo de este desafío es fortalecer las habilidades en lógica de programación. 
+// Aquí deberás desarrollar la lógica para resolver el problema.
+//
+// Programador: Mario Francisco Monzón Meza
+// Grupo  G9-ONE
 
 let largoDeLista = 0 ;
 let amigos = [] ;
 let nombreLeido = "" ;
-
 let indiceSorteado = 0 ;
 
 //  limpia en contenido de la casilla amigo
 function limpiarTexto() {
     document.querySelector('#amigo').value = '';
 }
-
 
 // función para actualizar la lista de amigos que se despliega
 function actualizaLista(){
@@ -35,8 +37,7 @@ function actualizaLista(){
 }
 
 
-
-//  función accionada por el botón "Añadir"
+//  función accionada por el botón "Adicionar"
 //  Agregar nombre de amigo a la lista
 function agregarAmigo() {
 
@@ -61,18 +62,13 @@ function agregarAmigo() {
         actualizaLista() ;
 
     }
-
     
-
     console.log(`largoDelista ${largoDeLista}`) ;
     console.log(amigos) ;
 
 }
 
-//  función para desactivar botones una vez haya sorteado
-
-
-//  función accionada por el botón "Sortear amigo"
+//  función accionada por el botón "Sortear Amigo"
 //  Agregar nombre de amigo a la lista
 function sortearAmigo() {
  
@@ -80,9 +76,10 @@ function sortearAmigo() {
 
         //  Genera un número entero entre 0 y largoDeLista
         indiceSorteado=  Math.floor(Math.random()*largoDeLista);
-    
-
-        console.log(`indice sorteado = ${indiceSorteado} ${amigos[indiceSorteado]}`) ;
+  
+        //Deshabilita el botón de añadir otro nombre
+        document.querySelector('#adicionar').setAttribute('disabled','true');
+        document.querySelector('#adicionar').innerHTML = 'deshabilitado';
 
         // Desplegar nombre de amigo sorteado
         let elementoHTML = document.getElementById("resultado");
@@ -97,20 +94,13 @@ function sortearAmigo() {
         
     }
 
-
 }
 
+/* //  función que se usó de prueba
 
 function asignarTextoElemento(elemento, texto) {
     let elementoHTML = document.querySelector(elemento);
     elementoHTML.innerHTML = texto;
     return;
 }
-
-
-
-//  quitar !!!!!
-console.log(`largoDelista ${largoDeLista}`) ;
-console.log(amigos) ;
-
-
+*/
